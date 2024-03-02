@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Products</h1>
+    <a href="productos:form">Crear tu producto</a>
+    <table class="prods_table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Stock</th>
+                <th>Puntaje</th>
+                <th>Categoría</th>
+                <th>Creado el</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {%for p in prods%}
+                <tr>
+                    <td>
+                        <a href =  "{% url 'productos:detalle' p.id %}"> 
+                            {{p.nombre}}
+                        </a>
+                    </td>
+                    <td>{{p.stock}}</td>
+                    <td>{{p.puntaje}}</td>
+                    <td>{{p.categoria}}</td>
+                    <td>{{p.creacion}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p>If you don't see the products that you want, it's because they're sold out...</p>
+{% endblock %}

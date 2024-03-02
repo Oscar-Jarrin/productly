@@ -1,0 +1,10 @@
+{# este módulo es una plantilla que es la fuente del estilo de renderización de un input (entrada de un formulario) #}
+<input 
+class = 'form-control {{widget.attrs.class}}'
+type="{{ widget.type }}" 
+name="{{ widget.name }}"
+{% if widget.value != None %} 
+value="{{ widget.value|stringformat:'s' }}"
+{% endif %}
+{% include "django/forms/widgets/attrs.html" %}
+>

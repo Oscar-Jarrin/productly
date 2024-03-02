@@ -1,0 +1,17 @@
+{% load add_attr %} {# este es mi filtro #}
+
+{% for field in form%} {# por cada field de form que viene del contexto de la views q fue mapeado desde u.py y vincula /formularios con la función formulario de views #}
+<div class = "mb-3">
+    {{field.label_tag}} {# obtengo la label del field #}
+    {% if field.errors %} {# si hay un error en field #}
+        {{field|add_attr:"class:is-invalid"}}   {# imprimo el resultado de pasarle la clase que tiene que agregar por parámetro al add_attr en add_attr.py, y el resultado de este filtro lo va a recibir el template de input en {{widget.attrs.class}} que se encarga de obtener la propiedad de widget (el objeto que retorna add_attr) que sería la clase que quiero que se agregue, #}
+    {% else %} {# sino #}
+        {{field}}    {# imprimo field solamente #}          
+    {% endif %}
+    <div class = "invalid-feedback">
+    {% for ex in field.errors%} {# si field tiene algun error, entonces obtengo el error y lo imprimo, de alguna forma, add_attr se encarga de ponerlo en rojo #}
+        {{ex}} 
+    {% endfor %}
+    </div> 
+</div>
+{% endfor %}

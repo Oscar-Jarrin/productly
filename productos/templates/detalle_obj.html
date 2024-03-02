@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <h3>Detalle de producto</h3>
+        <p>Nombre: {{obj.nombre}}</p>
+        <p>Stock: {{obj.stock}}</p>
+        <p>Creado el: {{obj.creacion}}</p>
+        <p>Puntaje: {{obj.puntaje}}</p>
+        <p>Categoria: {{obj.categoria}}</p>
+    </div>
+{% endblock %}

@@ -1,0 +1,4 @@
+{% if use_tag %}<{{ tag }}{% include 'django/forms/attrs.html' %} 
+class="form-label" 
+{% comment %} esta clase lo que hace es poner un espacio entre la label y el input {% endcomment %}
+>{{ label }}</{{ tag }}>{% else %}{{ label }}{% endif %}
